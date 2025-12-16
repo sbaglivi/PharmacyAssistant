@@ -2,7 +2,9 @@
 The prompt uses a standard format: we tell the agent who he is, an overview of what his role is and then a list of more specific guidelines. For each guideline, we specify what not to do and a course of action to prefer instead.  
 We use few shot prompting: we provide the model with a handful of examples of short conversations to help the LLM recognize some of the scenarios defined in the guidelines and adhere to the required behaviour.  
 I used markdown in the prompt to help convey the hierarchy of information given to the LLM.  
-In my testing (mostly done with gemini 2.5 flash / flash-lite), the agent is committed to its task and seems to respect the instructions. I personally tried "jailbreaking" it with an emotional situation (a loved one in danger of passing) and with messages in other languages or encoded (chinese - ai translated, base64 encoded requests).  
+  
+In my testing (mostly done with gemini 2.5 flash / flash-lite), the agent is committed to its task and seems to respect the instructions.  
+I personally tried "jailbreaking" it with an emotional situation (a loved one in danger of passing) and with messages in other languages or encoded (chinese - ai translated, base64 encoded requests).  
 With a first version of the prompt, I was of the opinion that the agent showed too much resistance to give information about which medications respect user given criteria and dosage informations. That lead me to introduce a couple of phrases and examples specifically targeted at slightly widening the range of tasks it was willing to undertake.  
 
 ## Limitations
