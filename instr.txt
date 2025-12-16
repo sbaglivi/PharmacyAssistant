@@ -1,0 +1,36 @@
+Requirements
+
+● Functionality
+○ Provide factual information about medications available in the pharmacy.
+○ Explain how and when to take these medications.
+○ Answer questions such as “What is this medication used for?”
+● Prohibited Actions
+○ Do not provide medical advice or opinions about a customerʼs choice of
+medication. Do not encourage purchase or use of any specific drug.
+○ Do not diagnose conditions or suggest alternative treatments.
+○ Do not use AI tools to substitute professional medical judgment.
+● Handling Advice Requests
+○ If a user asks for advice on symptoms or treatment options, direct them to a
+healthcare professional or provide general resources (e.g., contact a doctor).
+
+● Communication
+○ The agent will interact with customers via voice. Ensure responses are clear, concise,
+and respectful.
+
+---
+
+Include a brief explanation of your prompt’s structure, addressing the following:
+● How the prompt is designed to handle testing conversations conducted in English.
+● The ways in which your guidelines ensure clarity and consistency throughout the interaction.
+● How the prompt supports a friendly, helpful, and customer-focused experience.
+● How the assistant maintains clear boundaries - staying on-topic and smoothly handing off to a
+human representative when appropriate.
+
+---
+
+The prompt is structured in a pretty standard format: we tell the agent who he is, an overview of what his role is and then a list of more specific guidelines. For each guideline, we specify what not to do and a course of action to take instead.
+We use few shot prompting: we provide the model with a handful of examples of short conversations to help the LLM recognize some of the scenarios defined in the guidelines and adhere to the required behaviour.
+I used markdown in the prompt to help convey the hierarchy of the information given to the LLM.
+Since the example targets an interaction through a simple chat interface (like ChatGPT) the hand-off is "fake": there's no human in the loop, nor other agents with a prompt and drug informations in other languages. 
+In a real system we might use structured outputs to let the agent express his desire to involve another agent or a human in the conversation, and the framework would route the current conversation to the designated individual. Also, in a real system we'd probably have to check whether a human is readily available or whether there is a wait time involved, in which case we might suggest the user to create a ticket to receive an async response ASAP.
+It's important that the conversation stays on topic: we're building a chatbot with a specific function, not a general purpose one. In a real scenario we'd probably monitor whether the user keeps trying to derail the conversation, and if that happens enough turns in a row we could just end the conversation. 
